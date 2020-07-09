@@ -18,8 +18,9 @@ white, black = (240, 240, 240), (15, 15, 15)
 hue = 0
 
 n = 0
-c = 18
+c = 20
 points = []
+
 class Point:
     def __init__(self, x, y, color):
         self.x = x
@@ -41,7 +42,10 @@ while run:
     x = r * cos(angle)
     y = r * sin(angle)
 
-    p = Point(int(x) + width//2, int(y)+ height//2, hsv2rgb(hue, 1, 1))
+    # coloring type hsv2rgb(hue, 1, 1) for a rainbow pattern
+    # hsv2rgb(angle/255, 1, 1) for a spiral rainbow pattern
+
+    p = Point(int(x) + width//2, int(y)+ height//2, hsv2rgb(angle/255, 1, 1))
     points.append(p)
 
     for point in points:
